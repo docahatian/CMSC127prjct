@@ -10,3 +10,8 @@ Initial Features:
 > a UI to view, edit, delete created events or events attended
 > an event manager UI
 > a punctuality marker UI to report attendance to events
+
+Note:
+The frontend prograss is currently in Event_Manager_UI.html
+The .css and .js files are part of it, but it's not yet applied to the php file.
+-Kent
