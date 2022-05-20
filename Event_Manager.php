@@ -20,7 +20,6 @@
 
 <!DOCTYPE html>
 <html>
-<link href="style.css" rel="stylesheet" type="text/css">
 <head>
 <title>Event Manager</title>
 <link rel="stylesheet" href="Design_Event_Manager_UI.css">
