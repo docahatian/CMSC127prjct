@@ -1,17 +1,23 @@
 ﻿body {
-	text-align:	center;
+  text-align: center;
 }
-
+h1{
+  border: 3px solid #ccc;
+  width: 580px;
+  margin: auto;
+  border-radius: 25px;
+}
 /* Style the tab */
 .tab {
+
   overflow: hidden;
   border: 3px solid #ccc;
-  background-color: #f1f1f1;
   margin: auto;
-  width: 500px;
+  width: 580px;
 }
 
 .tablinks {
+text-align: center;
  font-size: 23px;
  border: 10px solid #ccc;
  margin: auto;
@@ -44,4 +50,15 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  width: 550px;
+  margin:auto;
+}
+
+.tabcontent_list{
+
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 550px;
+  margin:auto;
 }
