@@ -78,11 +78,15 @@
 </div>
 
 <div id="Delete" class="tabcontent"><!-- Add php for delete -->
-
+<form action="Delete_Event.php" method="POST">
   <?php  foreach($events as $event){ ?>
-	Event Name: <?php echo htmlspecialchars($event['Event_Name']); print("\t\t")?><button onclick="">Delete</button>
+	Event Name: <?php echo htmlspecialchars($event['Event_Name']); print("\t\t")?>
 <?php echo "<br>"; ?>
 	<?php } ?>
+	<?php echo "<br>"; ?>
+	Input Event ID: <input type="text" name="Event_ID_TBD" size="2" required><br>
+	<input type="submit" value="Delete">
+	</form>
 </div>
 
 <script src="Event_Tabs.js">
