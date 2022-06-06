@@ -75,6 +75,15 @@
 		case 2:{//logout
 			$_SESSION['current_acc'] = "";
 		}
+		case 3:{//create event
+			if (!isset($v_01) || trim($v_01) == '') {
+				echo "addevent0";//incomplete
+			}
+			else{
+				echo "addevent1";//all good
+				add_row_events($v_01, $v_02, $v_03);
+			}
+		}
 		break;
 	}
 ?>

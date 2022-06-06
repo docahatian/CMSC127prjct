@@ -80,7 +80,14 @@
 			$sql = "SELECT user_id FROM users WHERE user_id LIKE $id";
 			$result = @mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
-				break;
+				$sql = "SELECT attendee_id FROM attendees WHERE attendee_id LIKE $id";
+				$result = @mysqli_query($conn, $sql);
+				if(mysqli_num_rows($result) == 0){
+					break;
+				}
+				else{
+					$id = $id + 1;
+				}
 			}
 			else{
 				$id = $id + 1;
@@ -100,7 +107,14 @@
 			$sql = "SELECT attendee_id FROM attendees WHERE attendee_id LIKE $id";
 			$result = @mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
-				break;
+				$sql = "SELECT user_id FROM users WHERE user_id LIKE $id";
+				$result = @mysqli_query($conn, $sql);
+				if(mysqli_num_rows($result) == 0){
+					break;
+				}
+				else{
+					$id = $id + 1;
+				}
 			}
 			else{
 				$id = $id + 1;
@@ -113,7 +127,7 @@
 		else {
 		}
 	}
-	function add_row_events($creator_user_id, $event_name, $time_start, $time_end){
+	function add_row_events($event_name, $time_start, $time_end){
 		$conn = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
 		$id = 0;
 		while(true){
@@ -126,15 +140,16 @@
 				$id = $id + 1;
 			}
 		}
-		$al_id = 0;
 		//IMPORTANT - GET THE ID OF THE ATTENDANCE LIST AND ALSO MAKE IT
+		create_tbl_attendance_list($id);
 		$sql = "INSERT INTO events (event_id, creator_user_id, event_name, attendance_list_id, time_start, time_end)
-		VALUES ('$id', '$creator_user_id', '$event_name', '$al_id', '$time_start', '$time_end')";
+		VALUES ('$id', '".$_SESSION['current_acc']."', '$event_name', '$id', '$time_start', '$time_end')";
 		if (mysqli_query($conn, $sql)) {
 		}
 		else {
 		}
 	}
+	//i just realized how redundant the attendance_list_id column is. it's a pain to get rid of atm, maybe later
 	
 	/*
 	function add_row_compilation_archive($owner, $document_type, $month, $year, $raw){

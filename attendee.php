@@ -47,7 +47,7 @@ $(document).ready(function(){
 		<h3>Attendee - WIP</h3>
 		<table>
 			<tr>
-			<button id="logoutbutton">Logout</button>
+				<td><button id="logoutbutton">Logout</button></td>
 			</tr>
 		</table>
 	</th>

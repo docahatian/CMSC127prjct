@@ -25,6 +25,26 @@
 <title>nffe user page</title>
 <script src="jquery.min.js"></script>
 <script>
+	function createeventsubmit(){
+		var ia = document.getElementById("ea").value;
+		var ib = document.getElementById("eb").value;
+		var ic = document.getElementById("ec").value;
+		$.post("valumin.php",{
+			block: 3,
+			v_01: ia,
+			v_02: ib,
+			v_03: ic
+		},function(data,status){
+			switch(data.trim()){
+				case "addevent0":
+					document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"3\">Event creation failed! Required field/s were left blank!</td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button onclick=\"createeventsubmit()\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+				break;
+				case "addevent1":
+					document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"3\">Event creation success!</td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button onclick=\"createeventsubmit()\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+				break;
+			}
+		});
+	}
 $(document).ready(function(){
 	$("#logoutbutton").click(function(){
 		$.post("valumin.php",{
@@ -36,6 +56,30 @@ $(document).ready(function(){
 			window.location.href = "login.php";
 		});
 	});
+	$("#createeventtab").click(function(){
+		document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button onclick=\"createeventsubmit()\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+	});/*
+	$("#createeventsubmit").click(function(){
+		alert("l");
+		var ia = document.getElementById("ea").value;
+		var ib = document.getElementById("eb").value;
+		var ic = document.getElementById("ec").value;
+		$.post("valumin.php",{
+			block: 3,
+			v_01: ia,
+			v_02: ib,
+			v_03: ic
+		},function(data,status){
+			switch(data.trim()){
+				case "addevent0":
+					document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"3\">Event creation failed! Required field/s were left blank!</td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button id=\"createeventsubmit\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+				break;
+				case "addevent1":
+					document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"3\">Event creation success!</td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button id=\"createeventsubmit\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+				break;
+			}
+		});
+	});*/
 });
 </script>
 </head>
@@ -47,7 +91,12 @@ $(document).ready(function(){
 		<h3>User - WIP</h3>
 		<table>
 			<tr>
-			<button id="logoutbutton">Logout</button>
+				<td><button id="createeventtab">Create Event</button></td>
+				<td><button>View Events</button></td>
+				<td><button id="logoutbutton">Logout</button></td>
+			</tr>
+			<tr>
+			<td><div id="userwindow">...</div></td>
 			</tr>
 		</table>
 	</th>
