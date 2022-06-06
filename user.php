@@ -25,6 +25,16 @@
 <title>nffe user page</title>
 <script src="jquery.min.js"></script>
 <script>
+	function vieweventlist(){
+		$.post("valumin.php",{
+			block: 4,
+			v_01: "vo",
+			v_02: "vo",
+			v_03: "vo"
+		},function(data,status){
+			document.getElementById("userwindow").innerHTML = data;
+		});
+	}
 	function createeventsubmit(){
 		var ia = document.getElementById("ea").value;
 		var ib = document.getElementById("eb").value;
@@ -46,6 +56,7 @@
 		});
 	}
 $(document).ready(function(){
+	vieweventlist();
 	$("#logoutbutton").click(function(){
 		$.post("valumin.php",{
 			block: 2,
@@ -92,7 +103,7 @@ $(document).ready(function(){
 		<table>
 			<tr>
 				<td><button id="createeventtab">Create Event</button></td>
-				<td><button>View Events</button></td>
+				<td><button onclick="vieweventlist()">View Events</button></td>
 				<td><button id="logoutbutton">Logout</button></td>
 			</tr>
 			<tr>

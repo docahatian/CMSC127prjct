@@ -84,6 +84,17 @@
 				add_row_events($v_01, $v_02, $v_03);
 			}
 		}
+		case 4:{//view events
+			$total = "<table style=\"border: 1px solid\">";
+			$sql = "SELECT * FROM events WHERE creator_user_id LIKE '".$_SESSION['current_acc']."'";
+			$result = mysqli_query($conn, $sql);
+			$total = $total."<tr><td>Event Name</td><td>Start Time</td><td>End Time</td><td></td><td></td><td></td></tr>";
+			while($row = mysqli_fetch_row($result)){
+				$total = $total."<tr><td>".$row[2]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td><button>Edit</button></td><td><button>Delete</button></td><td><button>Manage Attendees</button></td></tr>";
+			}
+			$total = $total."</table>";
+			echo $total;
+		}
 		break;
 	}
 ?>
