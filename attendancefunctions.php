@@ -8,7 +8,7 @@
 	if (!$conn) {
 		    die("Connection failed: " . mysqli_connect_error());
 	}
-	
+	$_SESSION['current_acc'] = "";
 	function create_db($dbname){
 		/* not functional!
 		$GLOBALS['dbname'] = $dbname;
@@ -62,7 +62,7 @@
 	}
 	function create_tbl_attendance_list($attendance_list_id){
 		$conn = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
-		$sql = "CREATE TABLE al".attendance_list_id." (
+		$sql = "CREATE TABLE al$attendance_list_id (
 		user_id INT(30) NOT NULL,
 		status TINYINT(2) NOT NULL
 		)";
@@ -78,6 +78,7 @@
 		$id = 0;
 		while(true){
 			$sql = "SELECT user_id FROM users WHERE user_id LIKE $id";
+			$result = @mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				break;
 			}
@@ -97,6 +98,7 @@
 		$id = 0;
 		while(true){
 			$sql = "SELECT attendee_id FROM attendees WHERE attendee_id LIKE $id";
+			$result = @mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				break;
 			}
@@ -116,6 +118,7 @@
 		$id = 0;
 		while(true){
 			$sql = "SELECT event_id FROM events WHERE event_id LIKE $id";
+			$result = @mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				break;
 			}
