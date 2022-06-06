@@ -1,18 +1,40 @@
+<?php
+	include 'attendancefunctions.php';
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "attendancedb";
+	$conn = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
+	
+	$sql = "SELECT * FROM attendees WHERE attendee_id LIKE ".$_SESSION['current_acc'];
+	$result = @mysqli_query($conn,$sql);
+	if (mysqli_num_rows($result) != 1){
+		$sql = "SELECT * FROM users WHERE user_id LIKE ".$_SESSION['current_acc'];
+		$result = @mysqli_query($conn,$sql);
+		if (mysqli_num_rows($result) == 1){
+			header("Location: user.php");
+		}
+		else{
+			header("Location: login.php");
+			//die ("no valid account found. ".$_SESSION['current_acc']);
+		}
+	}
+?>
 <html>
 <head>
 <title>nffe attendee page</title>
 <script src="jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-	function login(){
-	}
-	$(document).keypress(function(e) {
-		if(e.which == 13){
-			login();
-		}
-	});
-	$("#loginbutton").click(function(){
-		login();
+	$("#logoutbutton").click(function(){
+		$.post("valumin.php",{
+			block: 2,
+			v_01: "vo",
+			v_02: "vo",
+			v_03: "vo"
+		},function(data,status){
+			window.location.href = "login.php";
+		});
 	});
 });
 </script>
@@ -23,6 +45,11 @@ $(document).ready(function(){
 <table>
 	<th style="justify-content:center;align-items:center;">
 		<h3>Attendee - WIP</h3>
+		<table>
+			<tr>
+			<button id="logoutbutton">Logout</button>
+			</tr>
+		</table>
 	</th>
 </table>
 </div>

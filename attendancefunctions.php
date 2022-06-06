@@ -8,7 +8,7 @@
 	if (!$conn) {
 		    die("Connection failed: " . mysqli_connect_error());
 	}
-	$_SESSION['current_acc'] = "";
+	//$_SESSION['current_acc'] = "";
 	function create_db($dbname){
 		/* not functional!
 		$GLOBALS['dbname'] = $dbname;

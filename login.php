@@ -47,8 +47,11 @@ $(document).ready(function(){
 				case "login3":
 					document.getElementById("loginstatus").innerHTML = "Login credentials are incorrect!";
 				break;
+				default:
+					alert(data);
+				break;
 			}
-		})
+		});
 	}
 	$(document).keypress(function(e) {
 		if(e.which == 13){
