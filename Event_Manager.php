@@ -1,11 +1,14 @@
 <?php
-	$conn = mysqli_connect('localhost', 'Djewel', 'test1234', 'events');
-
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "attendancedb";
+	$conn = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
 	if(!$conn){
 		echo 'Connection Error: ' . mysqli_connect_error();
 	}
 
-	$sql = 'SELECT Event_ID, User_ID, Username, Event_Name, Number_of_attending_people, List_of_Names_of_people_attending, Time_to_Start, Time_to_End FROM event_created'; 
+	$sql = 'SELECT event_id, creator_user_id, event_name, attendance_list_id, time_start, time_end FROM events'; 
 
 	$result = mysqli_query($conn, $sql);
 
@@ -38,15 +41,10 @@
 <!-- Tab Content: List of Events to display and attend -->
 <div id="Event_List" class="tabcontent_list">
 	<?php  foreach($events as $event){ ?>
-	Event Name: <?php echo htmlspecialchars($event['Event_Name']); ?>
+	Event ID: <?php echo htmlspecialchars($event['event_id']); ?>
 	Name of creator: <?php echo htmlspecialchars($event['Username']); ?>
-		Time: <?php echo htmlspecialchars($event['Time_to_Start']); ?>
-	- <?php echo htmlspecialchars($event['Time_to_End']); ?>
-	<ul>
-		Attendance: <?php foreach(explode(',', $event['List_of_Names_of_people_attending']) as $people){ ?>
-			<?php echo htmlspecialchars($people) ?>
-		<?php } ?>
-	</ul>
+		Time: <?php echo htmlspecialchars($event['time_start']); ?>
+	- <?php echo htmlspecialchars($event['time_end']); ?>
 
 <?php echo "<br>"; ?>
 
