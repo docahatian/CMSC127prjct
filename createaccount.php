@@ -1,7 +1,6 @@
 <html>
 <head>
-<title>Punctuality Tracker - Create Account</title>
-<link rel="stylesheet" href="Design_createaccount.css">
+<title>nffe account creation page</title>
 <script src="jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -42,40 +41,31 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body>
+<body style="background-image:url('https://images7.alphacoders.com/748/thumb-1920-748838.png');background-size:cover;overflow: hidden">
 
-<div id="Table">
-
+<div style="margin-left:40%;margin-right:40%;margin-top:20%;padding:1%;border:solid;background-color:#FFFFFF;display:flex;justify-content:center;align-items:center;">
 <table>
-	<th id="TitleCard">
-		<h1>Create Account</h1>
+	<th style="justify-content:center;align-items:center;">
+		<h3>Create Account</h3>
 	</th>
 	<tr>
-		<td colspan="1">Username:
-		<input id="un" type="text" name="username" value=""></td>
+		<td colspan="1">Username:</td>
+		<td colspan="2"><input id="un" type="text" name="username" value=""></td>
 	</tr>
 	<tr>
-		<td colspan="1">Password:
-		<input id="pw" type="password" name="password" value=""></td>
+		<td colspan="1">Password:</td>
+		<td colspan="2"><input id="pw" type="password" name="password" value=""></td>
 	</tr>
 	<tr>
-		<td colspan="1">Account type:
-		<input type="radio" name="acctyp" value="0"><label for="acctyp">User</label>
-		<input type="radio" name="acctyp" value="1"><label for="acctyp">Attendee</label></td>
+		<td colspan="1">Account type:</td>
+		<td colspan="1"><input type="radio" name="acctyp" value="0"><label for="acctyp">User</label></td>
+		<td colspan="1"><input type="radio" name="acctyp" value="1"><label for="acctyp">Attendee</label></td>
 	</tr>
-	<tr>
-		<td id="description">(User: Create, Edit, View, and delete events)</td>
-	</tr>
-	<tr>
-		<td id="description">(Attendee: Confirm your attendance in an event)</td>
-	</tr>
-
 	<tr>
 		<td colspan="2"><button id="registerbutton">Register</button></td>
 	</tr>
-
 	<tr>
-		<td colspan="2"><span id="registerstatus"></span></td>
+		<td colspan="2"><span id="registerstatus">...</span></td>
 	</tr>
 </table>
 </div>
