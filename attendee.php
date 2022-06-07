@@ -22,7 +22,8 @@
 ?>
 <html>
 <head>
-<title>nffe attendee page</title>
+<title>Punctuality Tracker - Attendee</title>
+<link rel="stylesheet" type="text/css" href="Design_attendee.css">
 <script src="jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -39,17 +40,14 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body style="background-image:url('https://images7.alphacoders.com/748/thumb-1920-748838.png');background-size:cover;overflow: hidden">
+<body>
 
-<div style="margin-left:40%;margin-right:40%;margin-top:20%;padding:1%;border:solid;background-color:#FFFFFF;display:flex;justify-content:center;align-items:center;">
+<div>
 <table>
-	<th style="justify-content:center;align-items:center;">
-		<h3>Attendee - WIP</h3>
-		<table>
-			<tr>
-				<td><button id="logoutbutton">Logout</button></td>
-			</tr>
-		</table>
+	<th>
+		<h1>Punctuality Tracker - Attendee</h1>
+		<h3>Attendee</h3>
+		<button id="logoutbutton">Logout</button>
 	</th>
 </table>
 </div>
