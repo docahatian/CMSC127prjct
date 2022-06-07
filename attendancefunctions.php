@@ -49,11 +49,10 @@
 		$conn = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
 		$sql = "CREATE TABLE events (
 		event_id INT(30) NOT NULL,
-		creator_user_id VARCHAR(10) NOT NULL,
-		event_name VARCHAR(10) NOT NULL,
-		attendance_list_id VARCHAR(10) NOT NULL,
-		time_start VARCHAR(30) NOT NULL,
-		time_end VARCHAR(30) NOT NULL
+		creator_user_id INT(30) NOT NULL,
+		event_name VARCHAR(50) NOT NULL,
+		time_start VARCHAR(50) NOT NULL,
+		time_end VARCHAR(50) NOT NULL
 		)";
 		if (mysqli_query($conn, $sql)) {
 		}
@@ -142,14 +141,15 @@
 		}
 		//IMPORTANT - GET THE ID OF THE ATTENDANCE LIST AND ALSO MAKE IT
 		create_tbl_attendance_list($id);
-		$sql = "INSERT INTO events (event_id, creator_user_id, event_name, attendance_list_id, time_start, time_end)
-		VALUES ('$id', '".$_SESSION['current_acc']."', '$event_name', '$id', '$time_start', '$time_end')";
+		$sql = "INSERT INTO events (event_id, creator_user_id, event_name, time_start, time_end)
+		VALUES ('$id', '".$_SESSION['current_acc']."', '$event_name', '$time_start', '$time_end')";
 		if (mysqli_query($conn, $sql)) {
 		}
 		else {
 		}
 	}
 	//i just realized how redundant the attendance_list_id column is. it's a pain to get rid of atm, maybe later
+	//i've gotten rid of it... i think?
 	
 	/*
 	function add_row_compilation_archive($owner, $document_type, $month, $year, $raw){
