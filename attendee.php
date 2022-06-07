@@ -25,13 +25,37 @@
 <title>nffe attendee page</title>
 <script src="jquery.min.js"></script>
 <script>
+function showattandableevents(){
+	$.post("valumin.php",{
+		block: 11,
+		v_01: "vo",
+		v_02: "vo",
+		v_03: "vo",
+		v_04: "vo"
+	},function(data,status){
+		document.getElementById("userwindow").innerHTML = data;
+	});
+}
+function attend(ev_id){
+	$.post("valumin.php",{
+		block: 12,
+		v_01: ev_id,
+		v_02: "vo",
+		v_03: "vo",
+		v_04: "vo"
+	},function(data,status){
+		document.getElementById("userwindow").innerHTML = data;
+	});
+}
+showattandableevents();
 $(document).ready(function(){
 	$("#logoutbutton").click(function(){
 		$.post("valumin.php",{
 			block: 2,
 			v_01: "vo",
 			v_02: "vo",
-			v_03: "vo"
+			v_03: "vo",
+			v_04: "vo"
 		},function(data,status){
 			window.location.href = "login.php";
 		});
@@ -48,6 +72,9 @@ $(document).ready(function(){
 		<table>
 			<tr>
 				<td><button id="logoutbutton">Logout</button></td>
+			</tr>
+			<tr>
+				<td><div id="userwindow"></div></td>
 			</tr>
 		</table>
 	</th>

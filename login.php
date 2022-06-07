@@ -15,7 +15,8 @@ $.post("valumin.php",{
 	block: 5,
 	v_01: "login",
 	v_02: "vo",
-	v_03: "vo"
+	v_03: "vo",
+	v_04: "vo"
 },function(data,status){
 	switch(data.trim()){
 		case "gotologin":{
@@ -40,7 +41,8 @@ $(document).ready(function(){
 			block: 0,
 			v_01: a,
 			v_02: b,
-			v_03: "vo"
+			v_03: "vo",
+			v_04: "vo"
 		},function(data,status){
 			switch(data.trim()){
 				case "login0":
