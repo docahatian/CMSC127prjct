@@ -96,5 +96,61 @@
 			echo $total;
 		}
 		break;
+		case 5:{//redirect according to $_SESSION['current_acc']. for now only important so that errors wont show up in login page, probably not necessary for the other two so it wont be implemented, just written here.
+			switch($v_01){
+				case "login":{
+					$sql = "SELECT * FROM users WHERE user_id LIKE '".$_SESSION['current_acc']."'";
+					$result = @mysqli_query($conn,$sql);
+					if (mysqli_num_rows($result) == 1){
+						echo "gotouser";
+						//header("Location: user.php");
+					}
+					$sql = "SELECT * FROM attendees WHERE attendee_id LIKE '".$_SESSION['current_acc']."'";
+					$result = @mysqli_query($conn,$sql);
+					if (mysqli_num_rows($result) == 1){
+						echo "gotoattendee";
+						//header("Location: attendee.php");
+					}
+				}
+				break;
+				case "user":{
+					$sql = "SELECT * FROM users WHERE user_id LIKE ".$_SESSION['current_acc'];
+					$result = @mysqli_query($conn,$sql);
+					if (mysqli_num_rows($result) != 1){
+						$sql = "SELECT * FROM attendees WHERE attendee_id LIKE ".$_SESSION['current_acc'];
+						$result = @mysqli_query($conn,$sql);
+						if (mysqli_num_rows($result) == 1){
+							echo "gotoattendee";
+							//header("Location: attendee.php");
+						}
+						else{
+							echo "gotologin";
+							//header("Location: login.php");
+							//die ("no valid account found. ".$_SESSION['current_acc']);
+						}
+					}
+				}
+				break;
+				case "attendee":{
+					$sql = "SELECT * FROM attendees WHERE attendee_id LIKE ".$_SESSION['current_acc'];
+					$result = @mysqli_query($conn,$sql);
+					if (mysqli_num_rows($result) != 1){
+						$sql = "SELECT * FROM users WHERE user_id LIKE ".$_SESSION['current_acc'];
+						$result = @mysqli_query($conn,$sql);
+						if (mysqli_num_rows($result) == 1){
+							echo "gotouser";
+							//header("Location: user.php");
+						}
+						else{
+							echo "gotologin";
+							//header("Location: login.php");
+							//die ("no valid account found. ".$_SESSION['current_acc']);
+						}
+					}
+				}
+				break;
+			}
+		}
+		break;
 	}
 ?>

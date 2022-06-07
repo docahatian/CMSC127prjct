@@ -19,6 +19,7 @@
 			//die ("no valid account found. ".$_SESSION['current_acc']);
 		}
 	}
+	echo $_SESSION['current_acc'];
 ?>
 <html>
 <head>
