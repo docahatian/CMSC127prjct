@@ -1,0 +1,49 @@
+body {
+  background:url(/Background_Create_Account.png);
+  background-size:cover;
+  text-align: center;
+}
+div{
+  margin-left:21%;
+  margin-right:21%;
+  margin-top:5%;
+  padding:1%;
+  border: 3px solid #000000;
+  border-radius: 25px;
+  background-color:#FFFFFF;
+
+}
+h1{
+  border: 3px solid #ccc;
+  width: 300px;
+  border-radius: 15px;
+   margin: auto;
+   margin-bottom:5%;
+}
+table{
+  font-size:21px;
+  font-family:"Times New Roman", Times, serif;
+  width:50%;
+  margin:0 auto;
+}
+button{
+  font-size:21px;
+  font-family:"Times New Roman", Times, serif;
+
+}
+td{
+  text-align: left;
+  width: 120px;
+  display: block;
+  float: left;
+  clear:right;
+}
+
+th{
+  margin: auto;
+   text-align: center;
+    margin-left:5%;
+}
+button{
+  margin-left: 100%;
+}
