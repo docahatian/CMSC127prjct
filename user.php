@@ -23,7 +23,8 @@
 ?>
 <html>
 <head>
-<title>nffe user page</title>
+<title>Punctuality Tracker System</title>
+<link rel="stylesheet" type="text/css" href="Design_user.css">
 <script src="jquery.min.js"></script>
 <script>
 	function vieweventlist(){
@@ -56,6 +57,7 @@
 			}
 		});
 	}
+
 $(document).ready(function(){
 	vieweventlist();
 	$("#logoutbutton").click(function(){
@@ -69,7 +71,8 @@ $(document).ready(function(){
 		});
 	});
 	$("#createeventtab").click(function(){
-		document.getElementById("userwindow").innerHTML = "<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button onclick=\"createeventsubmit()\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
+		document.getElementById("userwindow").innerHTML = 
+		"<table><tr><td colspan=\"1\">Event Name:</td><td colspan=\"2\"><input id=\"ea\" type=\"text\" name=\"eea\" value=\"\"></td></tr><tr><td colspan=\"1\">Time Start:</td><td colspan=\"2\"><input id=\"eb\" type=\"text\" name=\"eeb\" value=\"\"></td></tr><tr><td colspan=\"1\">Time End:</td><td colspan=\"2\"><input id=\"ec\" type=\"text\" name=\"eec\" value=\"\"></td></tr><tr><td colspan=\"1\"></td><td colspan=\"1\"><button onclick=\"createeventsubmit()\">Create this Event</button></td><td colspan=\"1\"></td></tr></table>";
 	});/*
 	$("#createeventsubmit").click(function(){
 		alert("l");
@@ -95,12 +98,12 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body style="background-image:url('https://images7.alphacoders.com/748/thumb-1920-748838.png');background-size:cover;overflow: hidden">
+<body>
 
-<div style="margin-left:40%;margin-right:40%;margin-top:20%;padding:1%;border:solid;background-color:#FFFFFF;display:flex;justify-content:center;align-items:center;">
+<div>
 <table>
-	<th style="justify-content:center;align-items:center;">
-		<h3>User - WIP</h3>
+	<th>
+		<h3>User</h3>
 		<table>
 			<tr>
 				<td><button id="createeventtab">Create Event</button></td>
