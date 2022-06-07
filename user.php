@@ -104,12 +104,10 @@ $(document).ready(function(){
 <table>
 	<th>
 		<h3>User</h3>
+		<div><button id="createeventtab">Create Event</button>
+		<button onclick="vieweventlist()">View Events</button>
+		<button id="logoutbutton">Logout</button></div>
 		<table>
-			<tr>
-				<td><button id="createeventtab">Create Event</button></td>
-				<td><button onclick="vieweventlist()">View Events</button></td>
-				<td><button id="logoutbutton">Logout</button></td>
-			</tr>
 			<tr>
 			<td><div id="userwindow">...</div></td>
 			</tr>
