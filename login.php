@@ -8,7 +8,8 @@
 ?>
 <html>
 <head>
-<title>nffe login page</title>
+<title>Punctuality Tracker - Login</title>
+<link rel="stylesheet" href="Design_login.css">
 <script src="jquery.min.js"></script>
 <script>
 $.post("valumin.php",{
@@ -76,12 +77,12 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body style="background-image:url('https://images7.alphacoders.com/748/thumb-1920-748838.png');background-size:cover;overflow: hidden">
-<div style="margin-left:40%;margin-right:40%;margin-top:20%;padding:1%;border:solid;background-color:#FFFFFF;display:flex;justify-content:center;align-items:center;">
+<body>
+<div id="Table">
+	<div id="TitleCard">
+		<h1>Punctuality Tracker System</h1>
+	</div>
 <table>
-	<th style="justify-content:center;align-items:center;">
-		<h3>Login</h3>
-	</th>
 	<tr>
 		<td colspan="1">Username:</td>
 		<td colspan="2"><input id="un" type="text" name="username" value=""></td>
@@ -92,11 +93,11 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 		<td colspan="1"></td>
-		<td colspan="1"><button id="loginbutton">Login</button></td>
+		<td colspan="1"><button id="loginbutton">Log In</button></td>
 		<td colspan="1"></td>
 	</tr>
 	<tr>
-		<td colspan="3"><span id="loginstatus">Please login to use the Punctuality Tracker System.</span></td>
+		<td colspan="3"><span id="loginstatus"></span></td>
 	</tr>
 </table>
 </div>
@@ -105,5 +106,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-
-
